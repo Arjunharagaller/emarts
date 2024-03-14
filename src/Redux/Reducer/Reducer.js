@@ -13,7 +13,6 @@ const handleCart=(state=cart,action)=>{
            const product=action.payload;
            return [ ...state,{...product,qty:1,}]
       }
-      break;
     case 'DELITEM':
         const delexist=state.find((x)=>x.id===product.id);
         if(delexist.qty===1)
@@ -22,9 +21,9 @@ const handleCart=(state=cart,action)=>{
         }else{
             return state.map((x)=>x.id===product.id?{...x,qty:x.qty-1}:x)
         }
-        break;
+       
     default: return state;
-        break;
+       
    }
 }
 
